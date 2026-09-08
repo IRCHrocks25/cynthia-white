@@ -144,7 +144,7 @@
     background-color:#5f664a;
     background-image:
       linear-gradient(180deg, rgba(50,20,26,.55) 0%, rgba(45,18,24,.40) 45%, rgba(35,12,18,.78) 100%),
-      url('https://cdn.katalyst-crm.com/t1/dshjbdscbjhhdbjdshhdcsbj.png');
+      url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20260907_113748_05590de2-a455-49ae-acb9-e1d9799eccd3.png');
     background-size:cover;
     background-position:center;
     overflow:hidden;
@@ -276,10 +276,10 @@
   .app h3{font-size:clamp(1.25rem,1.8vw,1.5rem);font-weight:500;margin-bottom:.7rem}
   .app p{color:var(--ink-soft);font-size:.84rem;margin:0;max-width:30ch}
   /* four different oval / pebble shapes */
-  .app.s1{border-radius:48% 52% 62% 38% / 56% 46% 54% 44%;background:#E7E9DA}
+  .app.s1{border-radius:48% 52% 62% 38% / 56% 46% 54% 44%;background:#F4D5D0}
   .app.s2{border-radius:60% 40% 44% 56% / 50% 60% 40% 50%;background:#F1E4D7;margin-top:2.8rem}
-  .app.s3{border-radius:52% 48% 56% 44% / 63% 42% 58% 37%;background:#ECE6D7}
-  .app.s4{border-radius:44% 56% 50% 50% / 46% 56% 44% 54%;background:#E4E3D2;margin-top:2.8rem}
+  .app.s3{border-radius:52% 48% 56% 44% / 63% 42% 58% 37%;background:#F5E1B8}
+  .app.s4{border-radius:44% 56% 50% 50% / 46% 56% 44% 54%;background:#ECC7C0;margin-top:2.8rem}
   .app.s2 .ic,.app.s4 .ic{color:var(--clay)}
   @media(max-width:1000px){
     .app-grid{grid-template-columns:1fr 1fr;gap:1.6rem;width:100%;max-width:none;left:auto;transform:none}
@@ -310,11 +310,29 @@
     transition:transform .4s ease, border-color .4s ease, background .4s ease;
   }
   .vcard:hover{transform:translateY(-5px);border-color:rgba(245,240,231,.22);background:rgba(251,246,240,.1)}
-  .vcard h4{font-family:var(--body);font-size:1.26rem;font-weight:600;color:var(--cream);line-height:1.25;margin:0 0 1.4rem;letter-spacing:-.01em;white-space:nowrap}
+  .vcard h4{font-family:var(--body);font-size:1.26rem;font-weight:600;color:var(--cream);line-height:1.25;margin:0 0 1.4rem;letter-spacing:-.01em}
   .vcard p{font-family:var(--body);font-style:normal;font-size:.92rem;line-height:1.6;color:rgba(245,240,231,.78);margin:0 0 auto;padding-bottom:1.4rem;font-weight:300}
   .vcard-bottom{display:flex;align-items:center;gap:.8rem;padding-top:1.2rem;border-top:1px solid rgba(245,240,231,.1);margin-top:auto}
   .vcard-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(245,240,231,.15)}
-  .vcard .who{font-family:var(--body);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-style:normal;font-weight:500}
+  .vcard-badge{
+    width:40px;height:40px;border-radius:50%;flex-shrink:0;
+    background:linear-gradient(135deg, var(--gold) 0%, var(--clay) 100%);
+    color:var(--cream);
+    font-family:var(--body);
+    font-size:.78rem;
+    letter-spacing:.06em;
+    font-weight:600;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid rgba(245,240,231,.18);
+    box-shadow:0 4px 12px -4px rgba(0,0,0,.35);
+  }
+  .vcard-badge--anon{
+    background:rgba(245,240,231,.08);
+    color:rgba(245,240,231,.6);
+    letter-spacing:.15em;
+    font-size:.75rem;
+  }
+  .vcard .who{font-family:var(--body);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-style:normal;font-weight:500;min-width:0;overflow-wrap:anywhere;line-height:1.5}
 
   .carousel-nav{display:flex;align-items:center;justify-content:center;gap:1.6rem;margin-top:2.8rem;position:relative;z-index:1}
   .carousel-btn{width:48px;height:48px;border-radius:50%;border:1px solid rgba(245,240,231,.25);background:transparent;color:var(--cream);cursor:pointer;display:grid;place-items:center;transition:all .3s ease}
@@ -534,6 +552,7 @@
     <li><a href="#applications">Applications</a></li>
     <li><a href="#voices">Stories</a></li>
     <li><a href="#circle">The Circle</a></li>
+    <li><a href="trainings.html">Trainings</a></li>
     <li><a href="#webinar">Webinar</a></li>
   </ul>
   <a href="#webinar" class="nav-cta">Register</a>
@@ -559,7 +578,7 @@
   <div class="wrap narrow">
     <img src="https://cdn.katalyst-crm.com/t1/logoemblem,.png" alt="GriefCynergy emblem" class="statement-emblem reveal" />
     <p class="reveal">You do not need to be the light that erases the dark. You need to be the hand that holds, that stays, and that doesn't let go.</p>
-    <p class="sub reveal d1">Presence is not a rare gift. It is a skill you can learn, and we can show you exactly how. Presence, not diagnosis. The people teaching you this once needed someone to do the same for them.</p>
+    <p class="sub reveal d1">Presence is not a rare gift. It is a skill you can learn, and we can show you exactly how. Grief is not a disorder to be treated. It is a natural human response, one that knows how to move when it is met. The people teaching you this once needed someone to do the same for them.</p>
   </div>
 </section>
 
@@ -608,7 +627,7 @@
       </div>
 
       <div class="rf-row reveal">
-        <div class="ph ph--clay" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20260817_055423_faf7a336-53a7-4ded-afc1-27869725102d.png')"></div>
+        <div class="ph ph--clay" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20260907_113749_165c1d22-80c5-48d0-959d-0690413b6647.png')"></div>
         <div class="rf-copy">
           <h3>Big energy.</h3>
           <p class="sub">Defiance. Movement. A raised voice.</p>
@@ -617,7 +636,7 @@
       </div>
 
       <div class="rf-row rf-row--flip reveal">
-        <div class="ph ph--sage" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20260817_055423_1df8c7ea-c8bf-46ba-99e2-9a93669cac6d.png')"></div>
+        <div class="ph ph--sage" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20260907_113748_4e7a0690-309c-4d11-8ea4-11eb2f6cb871.png')"></div>
         <div class="rf-copy">
           <h3>Small energy.</h3>
           <p class="sub">Silence. Stillness. A child who will not meet your eyes.</p>
@@ -675,7 +694,7 @@
       </div>
 
       <div class="tl-item">
-        <div class="tl-media reveal"><div class="ph ph--clay" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20260817_055423_14441399-c4a9-42d5-a90d-c2ec4dc8a621.png')"></div></div>
+        <div class="tl-media reveal"><div class="ph ph--clay" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20260907_113748_202e8c0d-e249-482e-834f-809bfa335e82.png')"></div></div>
         <div class="tl-copy reveal d1">
           <span class="tl-num">02</span>
           <h3>Say What You Hear.</h3>
@@ -684,7 +703,7 @@
       </div>
 
       <div class="tl-item">
-        <div class="tl-media reveal"><div class="ph ph--mist" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20260817_055423_47de21b7-a752-4ab9-8cea-564e846e079c.png')"></div></div>
+        <div class="tl-media reveal"><div class="ph ph--mist" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20260907_113748_dbf6a9ff-065f-46e7-9bbe-edbdc1333c41.png')"></div></div>
         <div class="tl-copy reveal d1">
           <span class="tl-num">03</span>
           <h3>Match the Energy.</h3>
@@ -693,7 +712,7 @@
       </div>
 
       <div class="tl-item">
-        <div class="tl-media reveal"><div class="ph ph--sage" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20260817_055423_6295ffce-2c20-4a17-946e-4ba02252117d.png')"></div></div>
+        <div class="tl-media reveal"><div class="ph ph--sage" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20260907_113748_32cb8ec7-96df-4a8f-9112-f886daa7bb52.png')"></div></div>
         <div class="tl-copy reveal d1">
           <span class="tl-num">04</span>
           <h3>Play Along with the Child.</h3>
@@ -702,7 +721,7 @@
       </div>
 
       <div class="tl-item">
-        <div class="tl-media reveal"><div class="ph ph--clay" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20260817_055423_1eb31504-25c9-4683-a3ba-648705d456f6.png')"></div></div>
+        <div class="tl-media reveal"><div class="ph ph--clay" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20260907_113748_d4cbdda0-ccbb-44b9-ab61-574d8dc39337.png')"></div></div>
         <div class="tl-copy reveal d1">
           <span class="tl-num">05</span>
           <h3>Share Small Parts of Your Own Story.</h3>
@@ -758,6 +777,9 @@
         <p>Move from the fear of not knowing what to do for a child to the quiet confidence of knowing exactly how to be there.</p>
       </div>
     </div>
+    <div class="center reveal" style="margin-top:3rem">
+      <a href="trainings.html" class="txtlink" style="color:var(--clay);border-bottom-color:rgba(139,38,53,.4)">See all of our trainings and programs →</a>
+    </div>
   </div>
 </section>
 
@@ -776,7 +798,7 @@
           <h4>A Place That Was Not Home</h4>
           <p>"...it's not all about talking to a therapist, it's about having a safe place other than home for them to be themselves and not worry about being judged for being different."</p>
           <div class="vcard-bottom">
-            <img class="vcard-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face" alt="Mari Asano"/>
+            <div class="vcard-badge" aria-hidden="true">MA</div>
             <span class="who">Mari Asano, Foster Parent</span>
           </div>
         </div>
@@ -785,7 +807,7 @@
           <h4>Recognizing the Right Energy</h4>
           <p>"The aspect that stands out the most is the difference between big energy and small energy. Being able to recognize in each child what energy is actually occurring and meet that need."</p>
           <div class="vcard-bottom">
-            <img class="vcard-avatar" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop&crop=face" alt="Kendall Juchter"/>
+            <div class="vcard-badge" aria-hidden="true">KJ</div>
             <span class="who">Kendall Juchter, Grief and Trauma Professional</span>
           </div>
         </div>
@@ -794,7 +816,7 @@
           <h4>Finding the Hard Word</h4>
           <p>"We learned from them that children don't have stigmas about suicide and to say the word 'suicide' while explaining what happened to her father. The best advice was to be honest and open with her, and just say it like it is, and don't avoid talking about it."</p>
           <div class="vcard-bottom">
-            <img class="vcard-avatar" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face" alt="Suzanne Lott"/>
+            <div class="vcard-badge" aria-hidden="true">SL</div>
             <span class="who">Suzanne Lott, Grandparent and Caregiver</span>
           </div>
         </div>
@@ -803,7 +825,7 @@
           <h4>Earning a Child's Trust</h4>
           <p>"I have spent numerous hours, side-by-side with Hiro Ito during direct interactions with children suffering from loss and trauma. He is a master at eliciting children's trust and admiration."</p>
           <div class="vcard-bottom">
-            <img class="vcard-avatar" src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=100&h=100&fit=crop&crop=face" alt="Grief Program Staff"/>
+            <div class="vcard-badge vcard-badge--anon" aria-hidden="true">•••</div>
             <span class="who">Anonymous, Grief Program Staff and Nurse/Medical Professional</span>
           </div>
         </div>
@@ -812,7 +834,7 @@
           <h4>Now Giving What Once Saved Him</h4>
           <p>"I can say that having the opportunity to train with Cynthia and Hiro has helped me process my own grief and utilize these skills in the outside world."</p>
           <div class="vcard-bottom">
-            <img class="vcard-avatar" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face" alt="Pono Heanu-Toyama"/>
+            <div class="vcard-badge" aria-hidden="true">PH</div>
             <span class="who">Pono Heanu-Toyama, Former Foster Child and Volunteer Facilitator</span>
           </div>
         </div>
@@ -847,7 +869,7 @@
           <div class="collage-sm" style="background-image:url('https://cdn.katalyst-crm.com/t1/1%20Little%20Hiro.JPG')"></div>
         </div>
         <div class="collage-row">
-          <div class="collage-sm" style="background-image:url('https://cdn.katalyst-crm.com/t1/Cynthia.book2.jpg')"></div>
+          <div class="collage-sm" style="background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20260907_113748_6c066ce2-beb2-43a8-95b3-eab068990fa8.png')"></div>
           <div class="collage-sm" style="background-image:url('https://cdn.katalyst-crm.com/t1/Hiro%20&%20child%20koa%20wood%20activity.jpg')"></div>
         </div>
         <div class="collage-main" style="background-image:url('https://cdn.katalyst-crm.com/t1/H%20&%20C%202.jpg')"></div>
@@ -857,7 +879,7 @@
         <h2 class="reveal d1">Where the Torch Was Lit</h2>
         <p class="lead-line reveal">At six years old, Cynthia stepped off a sidewalk, and for a moment, the world went still. The sound gone. The birds silent. A presence stopped her in place and left her with a message that would shape the rest of her life: everything that happens is right.</p>
         <p class="reveal">Soon after, her father drove her mother away and left his children behind. Cynthia moved through a series of foster homes. Three of them were abusive.</p>
-        <p class="reveal">It was the fourth home, with a family named Riggs, where she felt unconditional love for the first time. No lectures, no techniques, just a family that showed up, fully, for her life. That love was steady enough to pull her back into herself, and she has spent the 45 years teaching adults how to give a child what the Riggs family gave her.</p>
+        <p class="reveal">It was the fourth home, with a family named Riggs, where she felt unconditional love for the first time. No lectures, no techniques, just a family that showed up, fully, for her life. That love was steady enough to pull her back into herself, and she has spent 45 years teaching adults how to give a child what the Riggs family gave her.</p>
         <p class="reveal">Hiro's story runs a parallel path. He lost his mother before he turned three. A Catholic monastery took him in first, and for a while, he knew that same kind of love. Then he was moved to a second orphanage in Japan, where the abuse he survived was severe enough that parts of his own childhood are simply gone.</p>
         <p class="reveal">He carried that loss quietly into adulthood, until he trained under Cynthia and recognized, in his own body, what he had been silently suffering all along.</p>
         <p class="reveal">Neither of them started with a theory. Both started with a wound, and with someone who showed up. That is the origin of everything GriefCynergy now teaches.</p>
@@ -948,7 +970,7 @@
   </svg>
   <div class="wrap narrow reveal">
     <p class="eyebrow">The Riverbed Manifesto</p>
-    <blockquote class="manifesto-quote">“Grief is the energy of transformation. It is how you change. Trauma is the body's response to threat. It is how you survive.”</blockquote>
+    <blockquote class="manifesto-quote">“Grief is the energy of transformation. It is how you change. Trauma is the body's response to threat. It is how you survive. Neither is a disorder. Both are asking to move.”</blockquote>
     <p>A dam holds grief or trauma back until it breaks. A riverbed simply gives it a shape to move through, safely, at its own pace. That is the work. Not stopping what a child feels, but building the safe banks that let it flow.</p>
     <p class="toward">Toward a world where no child carries grief or trauma alone.</p>
     <div class="signatures">
@@ -967,6 +989,7 @@
     <li><a href="#applications">Applications</a></li>
     <li><a href="#voices">Stories</a></li>
     <li><a href="#circle">The Circle</a></li>
+    <li><a href="trainings.html">Trainings</a></li>
     <li><a href="#webinar">Webinar</a></li>
   </ul>
   <p class="foot-fine">© 2025 GriefCynergy · Presence, not diagnosis</p>
