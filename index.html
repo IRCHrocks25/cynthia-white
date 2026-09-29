@@ -119,41 +119,66 @@
   }
   .nav.scrolled{background:rgba(245,240,231,.94);backdrop-filter:blur(8px);
     padding-top:.85rem;padding-bottom:.85rem;box-shadow:0 1px 0 rgba(0,0,0,.05)}
-  .brand{font-family:var(--display);font-weight:600;font-size:1.5rem;letter-spacing:.5px;color:var(--cream);text-decoration:none;line-height:1}
+  .brand{font-family:var(--display);font-weight:600;font-size:1.5rem;letter-spacing:.5px;color:var(--ink);text-decoration:none;line-height:1}
   .brand span{color:var(--blush)}
-  .nav-links{display:flex;gap:2rem;align-items:center;list-style:none}
-  .nav-links a{font-family:var(--util);text-transform:uppercase;letter-spacing:.2em;font-size:.68rem;color:var(--cream);text-decoration:none;transition:color .3s}
-  .nav-links a:hover{color:var(--gold)}
+  .nav-links{
+    display:flex;flex-direction:column;list-style:none;
+    position:fixed;top:0;right:0;bottom:0;
+    width:min(88vw, 380px);
+    background:var(--cream);
+    padding:6rem clamp(2rem,4vw,3rem) 3rem;
+    gap:1.5rem;align-items:flex-start;margin:0;
+    transform:translateX(105%);
+    transition:transform .5s cubic-bezier(.5,0,.2,1);
+    z-index:99;
+    box-shadow:-20px 0 60px -20px rgba(30,15,20,.35);
+    overflow-y:auto;
+  }
+  .nav-links.open{transform:translateX(0)}
+  .nav-links a{font-family:var(--util);text-transform:uppercase;letter-spacing:.22em;font-size:.88rem;color:var(--ink);text-decoration:none;transition:color .3s;padding:.4rem 0;border-bottom:1px solid transparent}
+  .nav-links a:hover{color:var(--clay);border-bottom-color:var(--clay)}
   .nav-cta{font-family:var(--util);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--cream);text-decoration:none;border:1px solid rgba(255,255,255,.6);padding:.6rem 1.3rem;border-radius:30px;transition:all .4s ease}
-  .nav-cta:hover{background:var(--cream);color:var(--ink)}
-  .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:.4rem}
-  .burger span{width:24px;height:1.5px;background:var(--ink);transition:.3s}
+    color:var(--ink);text-decoration:none;border:1px solid var(--ink);padding:.6rem 1.3rem;border-radius:30px;transition:all .4s ease;margin-left:auto;margin-right:1rem}
+  .nav-cta:hover{background:var(--ink);color:var(--cream)}
+
+  .nav-overlay{position:fixed;inset:0;background:rgba(30,15,20,.5);opacity:0;pointer-events:none;transition:opacity .4s ease;z-index:95}
+  .nav-overlay.active{opacity:1;pointer-events:auto}
+  body.menu-open{overflow:hidden}
+
+  .burger{display:flex;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:.5rem;position:relative;z-index:110;width:36px;height:36px;align-items:center;justify-content:center}
+  .burger span{width:24px;height:1.5px;background:var(--ink);transition:transform .3s ease, opacity .3s ease, background .3s ease;transform-origin:center}
   .nav.on-hero .burger span{background:var(--cream)}
   .nav.scrolled.on-hero .burger span{background:var(--ink)}
+  .burger.active span{background:var(--ink) !important}
+  .burger.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .burger.active span:nth-child(2){opacity:0}
+  .burger.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 
 
   /* --- brand logo image handling --- */
-  .brand img{display:block;height:44px;width:auto;transition:filter .3s ease}
-  .nav.on-hero:not(.scrolled) .brand img{filter:brightness(0) invert(1)}
-  footer .brand img{height:60px;margin:0 auto 1rem;filter:brightness(0) invert(1);opacity:.92}
+  .brand img{display:block;height:70px;width:auto;transition:filter .3s ease, height .3s ease}
+  .nav.on-hero:not(.scrolled) .brand img{filter:brightness(0) invert(1);height:141px}
+  .nav.on-hero:not(.scrolled) .nav-links a{color:var(--cream)}
+  .nav.on-hero:not(.scrolled) .nav-cta{color:var(--cream);border-color:rgba(245,240,231,.6)}
+  .nav.on-hero:not(.scrolled) .nav-cta:hover{background:var(--cream);color:var(--ink)}
+  footer .brand img{height:88px;margin:0 auto 1.2rem;filter:brightness(0) invert(1);opacity:.92}
 
   /* ============================================================ 1 · HERO */
   .hero{
     position:relative;min-height:100vh;display:flex;align-items:center;color:var(--cream);
-    background-color:#5f664a;
+    background-color:var(--ink);
     background-image:
-      linear-gradient(180deg, rgba(50,20,26,.55) 0%, rgba(45,18,24,.40) 45%, rgba(35,12,18,.78) 100%),
-      url('https://cdn.katalyst-crm.com/a/29da04fa-8943-f5b7-7655-47b8948ce408');
+      linear-gradient(180deg, rgba(50,20,26,.55) 0%, rgba(45,18,24,.42) 45%, rgba(35,12,18,.78) 100%),
+      url('https://cdn.katalyst-crm.com/a/9715c430-8f61-8bed-b947-7fc7c0bc1a76');
     background-size:cover;
     background-position:center;
     overflow:hidden;
   }
-  .hero-inner{position:relative;z-index:2;padding:9rem var(--pad-hero) 6rem;max-width:1040px}
+  .hero-inner{position:relative;z-index:2;padding:9rem var(--pad-hero) 6rem;max-width:1360px}
   .hero .eyebrow{color:rgba(245,240,231,.85);margin-bottom:1.5rem}
   .hero h1{color:var(--cream);font-size:clamp(2.3rem,5.2vw,4.1rem);font-weight:400;letter-spacing:.4px;
-    text-shadow:0 2px 30px rgba(30,30,18,.3);max-width:24ch}
-  .hero-sub{max-width:52ch;color:rgba(245,240,231,.9);font-size:1.12rem;margin:1.6rem 0 2.4rem}
+    text-shadow:0 2px 30px rgba(30,30,18,.35);max-width:40ch}
+  .hero-sub{max-width:62ch;color:rgba(245,240,231,.9);font-size:1.12rem;margin:1.6rem 0 2.4rem}
   .hero-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:1.4rem 1.8rem}
   .hero-secondary{color:rgba(245,240,231,.82);font-size:.98rem;max-width:52ch}
   .hero-secondary a{color:var(--cream);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(245,240,231,.5)}
@@ -173,7 +198,7 @@
   .statement-emblem{width:72px;height:auto;margin:0 auto 2.4rem;opacity:.85}
 
   /* ============================================================ 3 · PROOF / STATS */
-  .proof{background-color:var(--ink);background-image:linear-gradient(180deg, rgba(50,20,26,.45) 0%, rgba(40,15,22,.55) 55%, rgba(30,10,16,.62) 100%),url('https://cdn.katalyst-crm.com/a/aab67431-dab9-b307-f97c-d0fdb0637f48');background-size:cover;background-position:center;color:var(--cream)}
+  .proof{background-color:var(--ink);background-image:linear-gradient(180deg, rgba(50,20,26,.45) 0%, rgba(40,15,22,.55) 55%, rgba(30,10,16,.62) 100%),url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20260928_135350_1a4c6d3c-7b65-4ae7-aa40-64705f47bfc0.png');background-size:cover;background-position:center;color:var(--cream)}
   .proof .eyebrow{color:var(--blush)}
   .proof h2{color:var(--cream);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin-top:.9rem;max-width:42ch;margin-left:auto;margin-right:auto}
   .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin:3rem 0;border-top:1px solid rgba(245,240,231,.18);border-bottom:1px solid rgba(245,240,231,.18)}
@@ -361,7 +386,7 @@
   .origin .pullquote{text-align:left;margin:2.4rem 0 0;max-width:32ch}
 
   /* ============================================================ 9 · JOINING CIRCLE */
-  .circle{background-color:var(--sage);background-image:linear-gradient(90deg, rgba(20,15,12,.88) 0%, rgba(20,15,12,.72) 40%, rgba(20,15,12,.3) 70%, transparent 100%),url('https://cdn.katalyst-crm.com/a/4c2f8e50-c219-0675-6957-8b4b12b6908f');background-size:cover;background-position:center;color:var(--cream)}
+  .circle{background-color:var(--sage);background-image:linear-gradient(90deg, rgba(74,31,38,.85) 0%, rgba(74,31,38,.65) 40%, rgba(74,31,38,.15) 75%, transparent 100%),url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20260928_135056_e5a0bef7-3cc1-4392-8543-538b5dd0f57c.png');background-size:cover;background-position:center;color:var(--cream)}
   .circle-grid{max-width:600px}
   .circle .eyebrow{color:var(--blush)}
   .circle h2{color:var(--cream);font-size:clamp(2rem,4.4vw,3rem);margin:.9rem 0 1.5rem}
@@ -397,7 +422,7 @@
   .webinar .fine{color:var(--ink-soft);font-size:.85rem;max-width:58ch;margin:0 auto 2.2rem}
 
   /* ============================================================ 12 · MANIFESTO */
-  .manifesto{background-color:var(--ink);background-image:linear-gradient(180deg, rgba(50,20,26,.45) 0%, rgba(40,15,22,.55) 55%, rgba(30,10,16,.62) 100%),url('https://cdn.katalyst-crm.com/a/aab67431-dab9-b307-f97c-d0fdb0637f48');background-size:cover;background-position:center;color:var(--cream);text-align:center;position:relative;overflow:hidden}
+  .manifesto{background-color:var(--ink);background-image:linear-gradient(180deg, rgba(50,20,26,.45) 0%, rgba(40,15,22,.55) 55%, rgba(30,10,16,.62) 100%),url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20260928_135350_1a4c6d3c-7b65-4ae7-aa40-64705f47bfc0.png');background-size:cover;background-position:center;color:var(--cream);text-align:center;position:relative;overflow:hidden}
   .manifesto .flow{display:none}
   .manifesto .eyebrow{color:var(--blush)}
   .manifesto-quote{font-family:var(--display);font-style:italic;font-size:clamp(1.5rem,2.8vw,2.2rem);line-height:1.45;
@@ -440,15 +465,11 @@
   @media(max-width:760px){
     body{font-size:0.9rem}
     .section{padding:clamp(3rem,8vw,5rem) 0}
-    .nav-links,.nav > .nav-cta{display:none}
-    .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;
-      background:var(--cream);padding:1.5rem var(--pad) 2rem;gap:1.2rem;box-shadow:0 10px 20px rgba(0,0,0,.08)}
-    .nav-links.open a{color:var(--ink)!important}
-    .nav-links.open .nav-cta{display:inline-block;color:var(--clay)!important;border-color:var(--clay)!important}
-    .burger{display:flex}
-    .burger span{background:var(--cream)}
+    .nav-cta{display:none}
 
     /* Hero */
+    .brand img{height:48px}
+    .nav.on-hero:not(.scrolled) .brand img{height:77px}
     .hero{min-height:auto}
     .hero-inner{padding:7rem var(--pad) 4rem}
     .hero h1{font-size:clamp(1.8rem,7vw,2.6rem)}
@@ -545,7 +566,7 @@
 
 <!-- ============ NAV ============ -->
 <nav class="nav on-hero" id="nav">
-  <a href="#top" class="brand"><img src="https://cdn.katalyst-crm.com/t1/logogreif.png" alt="GriefCynergy" /></a>
+  <a href="#top" class="brand"><img src="https://cdn.katalyst-crm.com/a/7c7fcc99-fd47-7bfc-96cf-76bb564ebeda" alt="GriefCynergy" /></a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#reframe">The Reframe</a></li>
     <li><a href="#joining">The Skill</a></li>
@@ -556,8 +577,9 @@
     <li><a href="#webinar">Webinar</a></li>
   </ul>
   <a href="#webinar" class="nav-cta">Register</a>
-  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
+<div class="nav-overlay" id="navOverlay"></div>
 
 <!-- ============ 1 · HERO — THE THRESHOLD OF SILENCE ============ -->
 <header class="hero" id="top">
@@ -636,7 +658,7 @@
       </div>
 
       <div class="rf-row rf-row--flip reveal">
-        <div class="ph ph--sage" style="background-image:url('https://cdn.katalyst-crm.com/a/2329b816-39b4-286c-59ff-c176abf79ed6')"></div>
+        <div class="ph ph--sage" style="background-image:url('https://cdn.katalyst-crm.com/a/2329b816-39b4-286c-59ff-c176abf79ed6');background-size:110%;background-position:center"></div>
         <div class="rf-copy">
           <h3>Small energy.</h3>
           <p class="sub">Silence. Stillness. A child who will not meet your eyes.</p>
@@ -869,7 +891,7 @@
           <div class="collage-sm" style="background-image:url('https://cdn.katalyst-crm.com/a/41ae0181-ebc9-fb02-f404-5a6e041cba16')"></div>
         </div>
         <div class="collage-row">
-          <div class="collage-sm" style="background-image:url('https://cdn.katalyst-crm.com/a/64ccf561-2b36-dd62-b26c-fc3efaf21783')"></div>
+          <div class="collage-sm" style="background-image:url('https://cdn.katalyst-crm.com/a/05ff051a-f3d3-76c7-161a-80cd2d539ef7')"></div>
           <div class="collage-sm" style="background-image:url('https://cdn.katalyst-crm.com/a/de24aa47-4782-d800-ccf1-019eccee10d1')"></div>
         </div>
         <div class="collage-main" style="background-image:url('https://cdn.katalyst-crm.com/a/8a015700-2335-6c92-f4fc-21259fc3cf3c')"></div>
@@ -971,7 +993,7 @@
   <div class="wrap narrow reveal">
     <p class="eyebrow">The Riverbed Manifesto</p>
     <blockquote class="manifesto-quote">“Grief is the energy of transformation. It is how you change. Trauma is the body's response to threat. It is how you survive. Neither is a disorder. Both are asking to move.”</blockquote>
-    <p>A dam holds grief or trauma back until it breaks. A riverbed simply gives it a shape to move through, safely, at its own pace. That is the work. Not stopping what a child feels, but building the safe banks that let it flow.</p>
+    <p>A dam holds grief or trauma back until it breaks. A riverbed simply gives it a shape to move through, safely, at its own pace. That is the work. Not stopping what a child feels, but building the safe banks that let it flow. We are the banks—trusted adults, trained to stay.</p>
     <p class="toward">Toward a world where no child carries grief or trauma alone.</p>
     <div class="signatures">
       <div class="signature"><div class="name">Cynthia L. White</div><div class="cred">Cynthia L. White, MAE</div></div>
@@ -982,7 +1004,7 @@
 
 <!-- ============ FOOTER ============ -->
 <footer>
-  <a href="#top" class="brand"><img src="https://cdn.katalyst-crm.com/t1/logogreif.png" alt="GriefCynergy" /></a>
+  <a href="#top" class="brand"><img src="https://cdn.katalyst-crm.com/a/7c7fcc99-fd47-7bfc-96cf-76bb564ebeda" alt="GriefCynergy" /></a>
   <ul class="foot-links">
     <li><a href="#reframe">The Reframe</a></li>
     <li><a href="#joining">The Skill</a></li>
@@ -1007,8 +1029,28 @@
 
   const burger = document.getElementById('burger');
   const links = document.getElementById('navLinks');
-  burger.addEventListener('click', () => links.classList.toggle('open'));
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  const overlay = document.getElementById('navOverlay');
+
+  const openMenu = () => {
+    links.classList.add('open');
+    burger.classList.add('active');
+    overlay.classList.add('active');
+    burger.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('menu-open');
+  };
+  const closeMenu = () => {
+    links.classList.remove('open');
+    burger.classList.remove('active');
+    overlay.classList.remove('active');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+  };
+  const toggleMenu = () => burger.classList.contains('active') ? closeMenu() : openMenu();
+
+  burger.addEventListener('click', toggleMenu);
+  overlay.addEventListener('click', closeMenu);
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const items = document.querySelectorAll('.reveal:not(.in)');
