@@ -125,18 +125,17 @@
   .nav-links{
     display:flex;flex-direction:column;list-style:none;
     position:fixed;top:0;right:0;bottom:0;
-    width:min(88vw, 380px);
+    width:0;
     background:var(--cream);
-    padding:6rem clamp(2rem,4vw,3rem) 3rem;
+    padding:6rem 0 3rem;
     gap:1.5rem;align-items:flex-start;margin:0;
-    transform:translateX(105%);
-    transition:transform .5s cubic-bezier(.5,0,.2,1);
+    transition:width .5s cubic-bezier(.5,0,.2,1);
     z-index:99;
     box-shadow:-20px 0 60px -20px rgba(30,15,20,.35);
-    overflow-y:auto;
+    overflow:hidden;
   }
-  .nav-links.open{transform:translateX(0)}
-  .nav-links a{font-family:var(--util);text-transform:uppercase;letter-spacing:.22em;font-size:.88rem;color:var(--ink);text-decoration:none;transition:color .3s;padding:.4rem 0;border-bottom:1px solid transparent}
+  .nav-links.open{width:min(88vw, 380px);overflow-y:auto}
+  .nav-links a{font-family:var(--util);text-transform:uppercase;letter-spacing:.22em;font-size:.88rem;color:var(--ink);text-decoration:none;transition:color .3s;padding:.4rem clamp(2rem,4vw,3rem);border-bottom:1px solid transparent;white-space:nowrap}
   .nav-links a:hover{color:var(--clay);border-bottom-color:var(--clay)}
   .nav-cta{font-family:var(--util);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
     color:var(--ink);text-decoration:none;border:1px solid var(--ink);padding:.6rem 1.3rem;border-radius:30px;transition:all .4s ease;margin-left:auto;margin-right:1rem}
